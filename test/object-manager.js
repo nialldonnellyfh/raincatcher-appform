@@ -1,7 +1,6 @@
 'use strict';
 
 var _ = require('lodash')
-  , config = require('./test-config')
   ;
 
 var _objects = [
@@ -38,7 +37,7 @@ function ObjectManager(mediator, datasetId) {
     console.log(self.topic.load, 'called');
     setTimeout(function() {
       var object = _.find(self.objects, function(_object) {
-        return _object.id == id;
+        return _object.id === id;
       });
       mediator.publish('done:' + self.topic.load + ':' + id, object);
     }, 0);
@@ -50,7 +49,7 @@ function ObjectManager(mediator, datasetId) {
     console.log(self.topic.save, 'called');
     setTimeout(function() {
       var index = _.findIndex(self.objects, function(_object) {
-        return _object.id == object.id;
+        return _object.id === object.id;
       });
       self.objects[index] = object;
       console.log('Saved object:', object);
@@ -77,13 +76,13 @@ ObjectManager.prototype.reset = function() {
   _objects.forEach(function(_object) {
     self.objects.push(_.clone(_object));
   });
-}
+};
 
 ObjectManager.prototype.unsubscribe = function() {
   this.mediator.remove(this.topic.list, this.subscription.list.id);
   this.mediator.remove(this.topic.load, this.subscription.load.id);
   this.mediator.remove(this.topic.save, this.subscription.save.id);
   this.mediator.remove(this.topic.create, this.subscription.create.id);
-}
+};
 
 module.exports = ObjectManager;

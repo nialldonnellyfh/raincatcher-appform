@@ -1,14 +1,13 @@
 'use strict';
 
-require('dotenv').config({path: './test/gamma.env'})
+require('dotenv').config({path: './test/gamma.env'});
 process.env.FH_USE_LOCAL_DB=true;
-console.log(process.env)
+console.log(process.env);
 
 var mbaasApi = require('fh-mbaas-api')
   , express = require('express')
   , cc = require('config-chain')
   , cors = require('cors')
-  , mediator = require('fh-wfm-mediator/lib/mediator')
   , http = require('http')
   ;
 
@@ -42,10 +41,6 @@ app.use('/box/srv/1.1/app/init', function(req, res) { // specify the cloud host 
     hosts: {url: 'http://localhost:8101'}
   });
 });
-
-// register our object handler
-var ObjectManager = require('./object-manager');
-var managers = {};
 
 // Important that this is last!
 app.use(mbaasExpress.errorHandler());

@@ -6,6 +6,7 @@
   "scripts": {
     "build": "wfm-template-build -m 'wfm.appform.directives'",
     "watch": "wfm-template-build -w -m 'wfm.appform.directives'",
+    "test": "grunt test",
     "test-watch": "mochify --watch test/client/**/*.spec.js",
     "test-debug": "mochify --debug test/client/**/*.spec.js",
     "test-phantom": "mochify test/client/**/*.spec.js",
@@ -29,6 +30,9 @@
     "fh-mbaas-api": "5.13.1",
     "fh-wfm-mediator": "0.0.14",
     "fh-wfm-template-build": "0.0.9",
+    "grunt": "1.0.1",
+    "grunt-eslint": "18.1.0",
+    "load-grunt-tasks": "3.5.2",
     "mochify": "2.17.0",
     "should": "8.3.0"
   },

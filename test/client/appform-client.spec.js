@@ -1,13 +1,11 @@
-'use strict'
+'use strict';
 
-debugger;
+/*globals window localStorage */
+
 var $fh = require('../lib/feedhenry')
   , should = require('should')
-  , config = require('../test-config')
-  , mediator = require('fh-wfm-mediator/lib/mediator')
   , client = require('../../lib/appform-client')
   , testHelper = require('./test-helper')
-  , q = require('q')
   ;
 
 // alternative to loading fhconfig via xhr
@@ -35,7 +33,7 @@ describe('Test appforms', function() {
       forms.should.not.be.empty();
     }, function(error) {
       throw error;
-    })
+    });
   });
 
   it('creating a submission works', function() {
